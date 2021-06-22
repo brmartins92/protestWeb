@@ -2,27 +2,27 @@
 
 # Método || Rota || Parametro  
 
-#Descurtir Negativamente
+## Descurtir Negativamente
 
 PUT    ||  /protest/dislike/  || id
 
-#Curtir Positivamente
+## Curtir Positivamente
 
 PUT    ||  /protest/like/     || id
 
-#Cadastrar Protesto
+## Cadastrar Protesto
 
 POST   ||  /protest
 
-#Deletar Protesto
+## Deletar Protesto
 
 DELETE ||  /protest/           || id
 
-#Todos os protestos
+## Todos os protestos
 
 GET    ||  /protest
 
-#Filtrar um protesto
+## Filtrar um protesto
 
 GET    ||  /protest/            || id
 
