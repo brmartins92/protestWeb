@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 let  datasProtests = [];
 
-const create = (req ,res) => {
+const create = (user ,message) => {
   let datasProtest = {
     id: uuidv4(),
     user: req.body.user,
