@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 let  datasProtests = [];
 
-const create = (user ,message) => {
+const create = ( user , message ) => {
   let datasProtest = {
     id: uuidv4(),
     user: user,
@@ -12,18 +12,16 @@ const create = (user ,message) => {
 
   if (datasProtests.push(datasProtest)) {
 
-    return {status:200 , result: datasProtests , message: "success"};
+    return {status:200 , result: datasProtests , message: "Protesto criado"};
 
   } else {
-   
-    res.status(400).json({message: "error"});
 
+    return {status:400 , result: datasProtests , message: "Protesto Não criado "};
+  
   }
 };
 
-const like = (req ,res) => {
-
-  const id = req.params.id;
+const like = ( id ) => {
  
   let findIndex = datasProtests.findIndex((value) => {
     return value.id == id;
@@ -31,19 +29,17 @@ const like = (req ,res) => {
 
   datasProtests[findIndex].like = datasProtests[findIndex].like + 1;
   if (datasProtests) {
-    return {status:200 , result: datasProtests , message: "success"};
+    return { status:200 , result: datasProtests , message: "success"};
   
   } else {
-   
-    res.status(400).json({message: "Protesto não encontrado"});
+
+    return { status:400 , message: "Protesto não encontrado"};
 
   }
 };
 
-const dislike = (req ,res) => {
+const dislike = ( id ) => {
 
-  const id = req.params.id;
- 
   let findIndex = datasProtests.findIndex((value) => {
     return value.id == id;
   });
@@ -56,14 +52,12 @@ const dislike = (req ,res) => {
   
   } else {
    
-    res.status(400).json({message: "Protesto não encontrado"});
+    return { status:400 , message: "Protesto não encontrado"};
 
   }
 };
 
-const remove = (req ,res) => {
-
-  const id = req.params.id;
+const remove = ( id ) => {
 
   let findIndex = datasProtests.findIndex((value) => {
       return value.id == id;
@@ -77,12 +71,12 @@ const remove = (req ,res) => {
   
   } else {
    
-    res.status(400).json({message: "Protesto não encontrado"});
+    return { status:400 , message: "Protesto não encontrado"};
 
   }
 };
 
-const allProtest = (req ,res) => {
+const allProtest = () => {
 
   if (datasProtests) {
 
@@ -90,14 +84,12 @@ const allProtest = (req ,res) => {
   
   } else {
    
-    res.status(400).json({message: "Protesto não encontrado"});
+    return { status:400 , message: "Protesto não encontrado"};
 
   }
 };
 
-const findProtest = (req ,res) => {
-
-  const id = req.params.id;
+const findProtest = (id) => {
  
   let findIndex = datasProtests.findIndex((value) => {
     return value.id == id;
@@ -110,7 +102,7 @@ const findProtest = (req ,res) => {
   
   } else {
    
-    res.status(400).json({message: "Protesto não encontrado"});
+    return { status:400 , message: "Protesto não encontrado"};
 
   }
 };
