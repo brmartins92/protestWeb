@@ -13,7 +13,10 @@ PUT    ||  /protest/like/     || id
 ## Cadastrar Protesto
 
 POST   ||  /protest
-
+{
+  user: "nome do usario",
+  message: "menssagem do protesto",
+}
 ## Deletar Protesto
 
 DELETE ||  /protest/           || id
