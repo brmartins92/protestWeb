@@ -10,6 +10,7 @@ const authentication = require('../middleware/auth.js');
 const protestC = require('../controllers/protest');
 
 router.get("/", (req, res ) => {
+ 
   const result = protestC.allProtest(req , res );
 
   if (result.result) {
@@ -33,8 +34,8 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/" ,authentication.auth,  (req, res ) => {
-    
-  const result = protestC.create(req , res );
+  let { user, message } = req.body;
+  const result = protestC.create(user , message );
 
   if (result.result) {
       res.status(result.status).json(result.result);

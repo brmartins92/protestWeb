@@ -4,8 +4,8 @@ let  datasProtests = [];
 const create = (user ,message) => {
   let datasProtest = {
     id: uuidv4(),
-    user: req.body.user,
-    message: req.body.message,
+    user: user,
+    message: message,
     like: 0,
     dislike: 0,
   };
