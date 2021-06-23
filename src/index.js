@@ -16,10 +16,10 @@ app.use((req, res, next) => {
 });
 /* routers*/
 
-const routerProtest = require('./src/routers/protestR');
+const routers = require('./routers/index.js');
 
 
-app.use('/protest' , routerProtest);
+app.use(routers);
 
   
 app.listen(port, () => {
