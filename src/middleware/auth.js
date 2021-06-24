@@ -11,7 +11,8 @@ const auth = (req, res, next) => {
 };
 
 const auth2 = (req, res, next) => {
-  console.log("BRUNOOOOOOOOOO");
+  
+  console.log("exemplo de teste");
   return next();
   
 };

@@ -2,17 +2,18 @@
 
 # Método || Rota || Parametro  
 
-## Descurtir Negativamente
+## Descurtir 
 
 PUT    ||  /protest/dislike/  || id
 
-## Curtir Positivamente
+## Curtir 
 
 PUT    ||  /protest/like/     || id
 
 ## Cadastrar Protesto
 
 POST   ||  /protest
+
 {
   user: "nome do usario",
   message: "menssagem do protesto",

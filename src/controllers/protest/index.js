@@ -1,7 +1,8 @@
 const { v4: uuidv4 } = require("uuid");
-let  datasProtests = [];
+const  datasProtests = [];
 
 const create = ( user , message ) => {
+  
   let datasProtest = {
     id: uuidv4(),
     user: user,
@@ -11,13 +12,9 @@ const create = ( user , message ) => {
   };
 
   if (datasProtests.push(datasProtest)) {
-
     return {status:200 , result: datasProtests , message: "Protesto criado"};
-
   } else {
-
     return {status:400 , result: datasProtests , message: "Protesto Não criado "};
-  
   }
 };
 
@@ -27,14 +24,11 @@ const like = ( id ) => {
     return value.id == id;
   });
 
-  datasProtests[findIndex].like = datasProtests[findIndex].like + 1;
-  if (datasProtests) {
+  if (findIndex > 0) {
+    datasProtests[findIndex].like = datasProtests[findIndex].like + 1;
     return { status:200 , result: datasProtests , message: "success"};
-  
   } else {
-
     return { status:400 , message: "Protesto não encontrado"};
-
   }
 };
 
@@ -43,17 +37,12 @@ const dislike = ( id ) => {
   let findIndex = datasProtests.findIndex((value) => {
     return value.id == id;
   });
-  
-  datasProtests[findIndex].dislike = datasProtests[findIndex].dislike + 1;
 
-  if (datasProtests) {
-
+  if (findIndex > 0) {
+    datasProtests[findIndex].dislike = datasProtests[findIndex].dislike + 1;
     return {status:200 , result: datasProtests , message: "success"};
-  
   } else {
-   
     return { status:400 , message: "Protesto não encontrado"};
-
   }
 };
 
@@ -65,49 +54,37 @@ const remove = ( id ) => {
 
   datasProtests.splice(findIndex, 1);
 
-  if (datasProtests) {
-
-    return {status:200 , result: datasProtests , message: "success"};
-  
+  if (findIndex > 0) {
+    return {status: 200  , message: "success" , result: datasProtests};
   } else {
-   
-    return { status:400 , message: "Protesto não encontrado"};
-
+    return { status: 400 , message: "Protesto não encontrado "};
   }
 };
 
-const allProtest = () => {
+const all = () => {
 
   if (datasProtests) {
-
     return {status:200 , result: datasProtests , message: "success"};
-  
   } else {
-   
     return { status:400 , message: "Protesto não encontrado"};
-
   }
 };
 
-const findProtest = (id) => {
+const find = (id) => {
  
   let findIndex = datasProtests.findIndex((value) => {
     return value.id == id;
   });
   
-
   if (datasProtests[findIndex]) {
-
     return {status:200 , result: datasProtests[findIndex] , message: "success"};
-  
   } else {
-   
     return { status:400 , message: "Protesto não encontrado"};
-
   }
+
 };
 
 
 
 
-module.exports = { create , like , dislike , remove , allProtest , findProtest};
+module.exports = { create , like , dislike , remove , all , find};
