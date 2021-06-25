@@ -59,7 +59,7 @@ router.put("/like/:id", (req, res) => {
 
 router.put("/dislike/:id", (req, res) => {
   const id = req.params.id;
-  const result = protestC.like(id);
+  const result = protestC.dislike(id);
 
   if (result.result) {
       res.status(result.status).json(result);
