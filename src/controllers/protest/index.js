@@ -24,7 +24,7 @@ const like = ( id ) => {
     return value.id == id;
   });
 
-  if (findIndex > 0) {
+  if (findIndex >= 0) {
     datasProtests[findIndex].like = datasProtests[findIndex].like + 1;
     return { status:200 , result: datasProtests , message: "success"};
   } else {
@@ -38,7 +38,7 @@ const dislike = ( id ) => {
     return value.id == id;
   });
 
-  if (findIndex > 0) {
+  if (findIndex >= 0) {
     datasProtests[findIndex].dislike = datasProtests[findIndex].dislike + 1;
     return {status:200 , result: datasProtests , message: "success"};
   } else {
