@@ -1,2 +1,4 @@
 /node_modules
 /.logs
+/coverage/lcov-report
+/coverage/clover.xml

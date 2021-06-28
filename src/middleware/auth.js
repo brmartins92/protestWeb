@@ -1,20 +1,19 @@
 
 const auth = (req, res, next) => {
   const { user } = req.body;
-  
-  if ( !user ) {
+
+  if (!user) {
     res.status(401).json({ message: "Está requisição precisa conter o usuário" });
   }
- 
-   return next();
-  
+
+  return next();
+
 };
 
 const auth2 = (req, res, next) => {
-  
-  console.log("exemplo de teste");
+
   return next();
-  
+
 };
 
-module.exports = { auth , auth2 };
+module.exports = { auth, auth2 };
